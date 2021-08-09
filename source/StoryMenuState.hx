@@ -34,7 +34,7 @@ class StoryMenuState extends MusicBeatState
 			['Satin Panties', "High", "Milf"],
 			['Cocoa', 'Eggnog', 'Winter Horrorland'],
 			['Senpai', 'Roses', 'Thorns'],
-			['Tutorial (Siivagunne)', 'Tutorial (Beta Mix)']
+			['Tutorial (Siivagunner)', 'Tutorial (Beta Mix)']
 		];
 	}
 	var curDifficulty:Int = 1;
