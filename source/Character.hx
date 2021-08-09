@@ -431,7 +431,26 @@ class Character extends FlxSprite
 				loadOffsetFile(curCharacter);
 	
 				playAnim('danceRight');
+
+			case 'siiva-tutorialbetamix-lady':
+				// GIRLFRIEND CODE
+				tex = Paths.getSparrowAtlas('siiva_tutorialbetamix_LADY_assets','shared',true);
+				frames = tex;
+				animation.addByPrefix('cheer', 'GF Cheer', 24, false);
+				animation.addByPrefix('singLEFT', 'GF left note', 24, false);
+				animation.addByPrefix('singRIGHT', 'GF Right Note', 24, false);
+				animation.addByPrefix('singUP', 'GF Up Note', 24, false);
+				animation.addByPrefix('singDOWN', 'GF Down Note', 24, false);
+				animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
+				animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
+				animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
+				animation.addByPrefix('scared', 'GF FEAR', 24);
 	
+				loadOffsetFile(curCharacter);
+	
+				playAnim('danceRight');
 		}
 
 		dance();
@@ -499,6 +518,9 @@ class Character extends FlxSprite
 			case 'siiva-gettingfreaky-gum':
 				if (animation.curAnim.name == 'hairFall' && animation.curAnim.finished)
 					playAnim('danceRight');
+			case 'siiva-tutorialbetamix-lady':
+				if (animation.curAnim.name == 'hairFall' && animation.curAnim.finished)
+					playAnim('danceRight');
 		}
 
 		super.update(elapsed);
@@ -515,7 +537,7 @@ class Character extends FlxSprite
 		{
 			switch (curCharacter)
 			{
-				case 'gf' | 'gf-christmas' | 'gf-car' | 'gf-pixel' | 'siiva-gettingfreaky-gum' | 'siiva-gettingfreaky-gum-christmas' | 'siiva-gettingfreaky-gum-car':
+				case 'gf' | 'gf-christmas' | 'gf-car' | 'gf-pixel' | 'siiva-gettingfreaky-gum' | 'siiva-gettingfreaky-gum-christmas' | 'siiva-gettingfreaky-gum-car' | 'siiva-tutorialbetamix-lady':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
 						danced = !danced;
@@ -581,6 +603,22 @@ class Character extends FlxSprite
 				danced = !danced;
 			}
 		}
+		if (curCharacter == 'siiva-tutorialbetamix-lady')
+			{
+				if (AnimName == 'singLEFT')
+				{
+					danced = true;
+				}
+				else if (AnimName == 'singRIGHT')
+				{
+					danced = false;
+				}
+	
+				if (AnimName == 'singUP' || AnimName == 'singDOWN')
+				{
+					danced = !danced;
+				}
+			}
 	}
 
 	public function addOffset(name:String, x:Float = 0, y:Float = 0)
