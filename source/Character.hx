@@ -613,7 +613,7 @@ class Character extends FlxSprite
 			{
 				danced = false;
 			}
-	
+
 			if (AnimName == 'singUP' || AnimName == 'singDOWN')
 			{
 				danced = !danced;
