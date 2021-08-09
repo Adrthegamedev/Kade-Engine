@@ -604,21 +604,21 @@ class Character extends FlxSprite
 			}
 		}
 		if (curCharacter == 'siiva-tutorialbetamix-lady')
+		{
+			if (AnimName == 'singLEFT')
 			{
-				if (AnimName == 'singLEFT')
-				{
-					danced = true;
-				}
-				else if (AnimName == 'singRIGHT')
-				{
-					danced = false;
-				}
-	
-				if (AnimName == 'singUP' || AnimName == 'singDOWN')
-				{
-					danced = !danced;
-				}
+				danced = true;
 			}
+			else if (AnimName == 'singRIGHT')
+			{
+				danced = false;
+			}
+	
+			if (AnimName == 'singUP' || AnimName == 'singDOWN')
+			{
+				danced = !danced;
+			}
+		}
 	}
 
 	public function addOffset(name:String, x:Float = 0, y:Float = 0)
